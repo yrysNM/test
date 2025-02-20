@@ -12,9 +12,31 @@ body {
     margin: 0;
     font-family: "Montserrat", serif;
     background-color: #f9faf8;
-
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Target scrollbar width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 code {
@@ -24,7 +46,6 @@ code {
 .script-font {
     font-family: "Caveat", cursive;
     font-size: 40px;
-    color: #d4bd58; /* Золотой оттенок */
 }
 
 #falling-flower {
