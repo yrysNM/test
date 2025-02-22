@@ -15,6 +15,7 @@ body {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
 }
 
 /* Target scrollbar width */
@@ -45,7 +46,6 @@ code {
 
 .script-font {
     font-family: "Caveat", cursive;
-    font-size: 40px;
 }
 
 #falling-flower {
@@ -53,5 +53,15 @@ code {
     top: 0;
     left: 0;
     height: 260px;
+    z-index: -1;
     width: 100%;
+}
+
+#falling-flower2 {
+    position: absolute;
+    bottom: -136px;
+    left: 24px;
+    right: 24px;
+    z-index: -1;
+    height: 160px;
 }

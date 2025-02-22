@@ -9,19 +9,56 @@
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="Web site created using create-react-app" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport->" />
 
-        <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
         <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-        <title>Заңғар ❤️ Bekzada</title>
+        <title>Заңғар ❤️ Бекзада</title>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root" class="fade-in"></div>
+        <div id="falling-flower2"></div>
         <div id="falling-flower"></div>
+        <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+        <script type="text/javascript">
+            var map
+
+            DG.then(function () {
+                map = DG.map("map", {
+                    center: [43.228732, 76.976283],
+                    zoom: 15,
+                    fullscreenControl: false,
+                    zoomControl: false,
+                })
+
+                DG.marker([43.228732, 76.976283]).addTo(map)
+            })
+        </script>
         <script src="./js/sakura.js"></script>
         <script style="background-attachment: fixed">
             var sakura = new Sakura("#falling-flower", {
+                fallSpeed: 0.5,
+                colors: [
+                    {
+                        gradientColorStart: "rgb(252, 147, 180, 0.9)",
+                        gradientColorEnd: "rgb(252, 147, 180,0.9)",
+                        gradientColorDegree: 120,
+                    },
+                    {
+                        gradientColorStart: "rgba(243, 217, 222, 0.5)",
+                        gradientColorEnd: "rgba(243, 217, 222, 0.5)",
+                        gradientColorDegree: 120,
+                    },
+                    {
+                        gradientColorStart: "rgba(44,  0)",
+                        gradientColorEnd: "rgba(44, 0)",
+                        gradientColorDegree: 120,
+                    },
+                ],
+                delay: 40,
+            })
+            var sakura = new Sakura("#falling-flower2", {
                 fallSpeed: 0.5,
                 colors: [
                     {
