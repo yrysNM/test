@@ -4,6 +4,7 @@ import "./index.css"
 import Countdown from "./components/Countdown"
 import MobileCheck from "./components/MobileCheck"
 import DividerImg from "./assets/img/divider.png"
+import Footer from "./components/Footer"
 
 const Divider = () => {
     return (
@@ -15,7 +16,7 @@ const Divider = () => {
 function App() {
     return (
         <MobileCheck>
-            <div className="App relative">
+            <div className="App relative overflow-x-hidden">
                 <Header />
 
                 <div className="text-center uppercase font-playfair mt-10 leading-[23px] text-adjust-auto origin-center">
@@ -92,12 +93,12 @@ function App() {
                         </div>
                         <p className="mt-2 text-blue-base font-playfair text-3xl">"Atyrau Hall 1"</p>
 
-                        <div id="map" className="mx-2 rounded-lg border shadow  mt-4 h-52"></div>
+                        <div id="map" className="mx-2 overflow-hidden rounded-lg border shadow  mt-4 h-52"></div>
                     </div>
 
                     <Divider />
                 </div>
-                {/* <FallingFlowers /> */}
+                <Footer />
             </div>
         </MobileCheck>
     )

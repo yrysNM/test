@@ -1,13 +1,15 @@
-import FlowerImg from "../assets/img/header_flower.png"
+import Test1 from "../assets/img/test2.png"
 
 const Footer = () => {
     return (
         <footer className="mt-20 text-center pb-8">
-            <div className="max-w-md mx-auto px-4">
-                <p className="text-gold-base script-font text-2xl mb-4">Келіңіздер, қадірлі қонағымыз болыңыздар!</p>
+            <div className="max-w-md mx-auto px-4 mb-10 relative">
+                <p className="text-black-primary font-playfair text-lg font-medium">Келіңіздер, қадірлі қонағымыз болыңыздар!</p>
 
-                <div className="mt-8 text-sm text-gray-500">
-                    <p>шақыруды тек смартфоннан көре аласыз!</p>
+                <div className="mt-14 flex flex-row absolute -bottom-20 left-0">
+                    <img src={Test1} alt="test" className="object-contain w-1/3" />
+                    <img src={Test1} alt="test" className="object-contain w-1/3" />
+                    <img src={Test1} alt="test" className="object-contain w-1/3" />
                 </div>
             </div>
         </footer>
