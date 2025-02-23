@@ -78,9 +78,24 @@ function App() {
                         <div className="border-t border-gray-400 flex-grow ml-2"></div>
                     </div>
 
-                    <div className="mt-10 p-2">
+                    <div className="mt-2 p-2">
                         <Countdown />
                     </div>
+
+                    <div className="mt-10">
+                        <h3 className="font-playfair text-2xl">Мекен-Жайымыз: </h3>
+                        <div className="border-t border-gray-400 w-1/2 mt-2 mx-auto"></div>
+                        <div className="tn-atom text-adjust-auto transform font-medium origin-center leading-6 uppercase mt-4">
+                            <span className="font-montserrat">атырау қаласы,</span>
+                            <br />
+                            <span className="font-playfair">43-ші көшесі, 57а</span>
+                        </div>
+                        <p className="mt-2 text-blue-base font-playfair text-3xl">"Atyrau Hall 1"</p>
+
+                        <div id="map" className="mx-2 rounded-lg border shadow  mt-4 h-52"></div>
+                    </div>
+
+                    <Divider />
                 </div>
                 {/* <FallingFlowers /> */}
             </div>
