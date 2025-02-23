@@ -63,7 +63,7 @@ code {
     position: absolute;
     top: 0;
     left: 0;
-    height: 260px;
+    height: 360px;
     z-index: -1;
     width: 100%;
 }
@@ -93,5 +93,5 @@ code {
     background: transparent;
     border: 1px solid black;
     transform: rotate(-10deg);
-    border-radius: 10px 0 10px 0;
+    border-radius: 5px 0 5px 0;
 }
