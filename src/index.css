@@ -1,3 +1,5 @@
+@import "./assets/css/fonts.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,6 +18,19 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: relative;
+}
+
+/* Font Classes */
+.font-kazak {
+    font-family: "kazak", Arial, sans-serif;
+}
+
+.font-playfair {
+    font-family: "Playfair Display", serif;
+}
+
+.font-montserrat {
+    font-family: "Montserrat", serif;
 }
 
 /* Target scrollbar width */
@@ -44,10 +59,6 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.script-font {
-    font-family: "Caveat", cursive;
-}
-
 #falling-flower {
     position: absolute;
     top: 0;
@@ -57,11 +68,30 @@ code {
     width: 100%;
 }
 
-#falling-flower2 {
+/* Smooth animation for the scroll indicator */
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.kazak-letter {
+    position: relative;
+}
+
+.kazak-letter::after {
+    content: "";
     position: absolute;
-    bottom: -136px;
-    left: 24px;
-    right: 24px;
-    z-index: -1;
-    height: 160px;
+    width: 10px;
+    height: 1px;
+    top: 68px;
+    left: 0;
+    background: transparent;
+    border: 1px solid black;
+    transform: rotate(-10deg);
+    border-radius: 10px 0 10px 0;
 }

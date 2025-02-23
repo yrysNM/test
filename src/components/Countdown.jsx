@@ -10,7 +10,7 @@ const Countdown = () => {
 
     useEffect(() => {
         const calculateTimeLeft = () => {
-            const targetDate = new Date("2025-07-06T17:00:00+06:00") // Kazakhstan time (UTC+6)
+            const targetDate = new Date("2025-07-06T19:00:00+06:00")
             const now = new Date()
             const difference = targetDate - now
 
@@ -25,22 +25,22 @@ const Countdown = () => {
         }
 
         const timer = setInterval(calculateTimeLeft, 1000)
-        calculateTimeLeft() // Initial calculation
+        calculateTimeLeft()
 
         return () => clearInterval(timer)
     }, [])
 
     const TimeBox = ({ value, label }) => (
         <div className="flex flex-col items-center">
-            <div className="bg-gold-base/10 rounded-lg p-4 min-w-[40px] text-center">
-                <span className="text-2xl font-semibold text-gold-base">{value}</span>
+            <div className="bg-gold-base text-white rounded-lg p-6 min-w-[100px]">
+                <span className="text-4xl font-bold">{value}</span>
             </div>
-            <span className="text-base mt-2 text-gold-base script-font">{label}</span>
+            <span className="text-lg mt-3 text-gold-base">{label}</span>
         </div>
     )
 
     return (
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex flex-wrap justify-center gap-6">
             <TimeBox value={timeLeft.days} label="күн" />
             <TimeBox value={timeLeft.hours} label="сағат" />
             <TimeBox value={timeLeft.minutes} label="минут" />
