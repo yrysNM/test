@@ -77,6 +77,10 @@ function App() {
                         <div className="text-2xl font-medium text-black-primary">18:00</div>
                         <div className="border-t border-gray-400 flex-grow ml-2"></div>
                     </div>
+
+                    <div className="mt-10 p-2">
+                        <Countdown />
+                    </div>
                 </div>
                 {/* <FallingFlowers /> */}
             </div>
