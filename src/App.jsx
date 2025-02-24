@@ -6,7 +6,7 @@ import MobileCheck from "./components/MobileCheck"
 import DividerImg from "./assets/img/divider.png"
 import Footer from "./components/Footer"
 import CircleAU from "./components/CircleAU"
-import RSVPForm from './components/RSVPForm'
+import RSVPForm from "./components/RSVPForm"
 
 const Divider = () => {
     return (
@@ -16,7 +16,7 @@ const Divider = () => {
     )
 }
 
-const CircleImg = ({ className }: { className: string }) => {
+export const CircleImg = ({ className }: { className: string }) => {
     return (
         <div className={`absolute  w-[320px] h-[320px]  ${className}`}>
             <CircleAU />
@@ -42,15 +42,14 @@ function App() {
 
                 <div className="mt-10 text-center relative ">
                     <h2 className="uppercase font-montserrat text-xl">сіздерді ұлымыз</h2>
-                    
+
                     <CircleImg className="-right-56 -top-24 opacity-15 -z-10" />
 
                     <div className="relative">
                         <Names2 />
                     </div>
                     <div className="mt-56 relative">
-
-                    <CircleImg className="-left-56 top-8 opacity-15 -z-10" />
+                        <CircleImg className="-left-56 top-8 opacity-15 -z-10" />
 
                         <p className="font-playfair text-adjust-auto transform origin-center leading-[23px]">
                             келініміздің үйлену <br />
@@ -87,8 +86,8 @@ function App() {
                                 {i + 1 === 6 && <img src={HeartImg} alt="test" className="animate-pulse absolute -top-1 left-1/2 -translate-x-1/2 w-10 h-10 -z-10" />}
                             </div>
                         ))}
-                        
-                    <CircleImg className="-right-56 -top-24 opacity-10 -z-10" />
+
+                        <CircleImg className="-right-56 -top-24 opacity-10 -z-10" />
                     </div>
                     <div className="text-2xl text-gray-700 mt-10 font-playfair">БАСТАЛУ УАҚЫТЫ:</div>
                     <div className="flex items-center justify-center mt-2 mx-auto w-10/12">

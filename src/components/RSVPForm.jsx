@@ -1,20 +1,30 @@
-import HeartImg from "../assets/img/heart_input.png";
-import { useState } from "react"
+import React, { useState } from "react"
+import HeartImg from "../assets/img/heart_input.png"
+import Modal from "./Modal"
+import { CircleImg } from "../App"
 
 const RSVPForm = () => {
     const [formData, setFormData] = useState({
         name: "",
         attendance: "",
     })
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData)
+        setIsModalOpen(true)
+    }
+
+    const closeModal = () => {
+        setIsModalOpen(false)
+        setFormData({
+            name: "",
+            attendance: "",
+        })
     }
 
     return (
-        <div className="max-w-md mx-auto p-6 pt-0">
-   
+        <div className="max-w-md mx-auto p-6 pt-0 relative">
             <div className="text-center mb-12">
                 <h2 className="text-2xl font-playfair uppercase leading-relaxed font-medium">
                     Тойға келетініңізді
@@ -27,15 +37,9 @@ const RSVPForm = () => {
 
             <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="relative">
-                    <input
-                        type="text"
-                        placeholder="Есіміңіз"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-6 py-3 border border-gray-300 rounded-full text-2xl focus:outline-none focus:border-blue-400 placeholder:text-2xl"
-                    />
+                    <input type="text" placeholder="Есіміңіз" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full pr-6 pl-2 py-3 border border-gray-300 rounded-lg text-2xl focus:outline-none focus:border-blue-400 placeholder:text-lg" />
                     <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                        <img src={HeartImg} alt="heart-img" className="w-6 h-6 object-contain" /> 
+                        <img src={HeartImg} alt="heart-img" className="w-6 h-6 object-contain" />
                     </div>
                 </div>
 
@@ -64,13 +68,12 @@ const RSVPForm = () => {
                     </div>
                 </div>
 
-                <button
-                    type="submit"
-                    className="w-full py-3 px-6 bg-blue-base text-white rounded-full hover:bg-blue-500 transition-colors font-montserrat"
-                >
+                <button type="submit" className="w-full py-3 px-6 bg-blue-base text-white rounded-full text-lg transition-colors font-montserrat">
                     Жауапты жіберу
                 </button>
             </form>
+            <CircleImg className="absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 opacity-20 -z-10" />
+            <Modal isOpen={isModalOpen} onClose={closeModal} formData={formData} />
         </div>
     )
 }
