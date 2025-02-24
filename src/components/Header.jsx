@@ -38,7 +38,7 @@ const Header = () => {
                             </div>
                         </h1>
                         <span className="absolute top-44 -left-20 text-[100px] font-kazak ml-10 mb-4">&</span>
-                        <h1 className="text-[100px] absolute top-64 -left-24 font-kazak ml-20">Bekzada</h1>
+                        <h1 className="text-[100px] absolute top-64 -left-24 font-kazak ml-20">Бекзада</h1>
                     </div>
                 </div>
             </div>
