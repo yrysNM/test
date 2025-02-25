@@ -47,13 +47,13 @@ body {
 
 /* Scrollbar handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #8097c9;
     border-radius: 10px;
 }
 
 /* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #8097c9;
 }
 
 code {

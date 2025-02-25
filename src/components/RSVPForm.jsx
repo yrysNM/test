@@ -1,18 +1,36 @@
 import React, { useState } from "react"
 import HeartImg from "../assets/img/heart_input.png"
 import Modal from "./Modal"
-import { CircleImg } from "../App"
+import { CircleImg } from "../App";
+import { motion, AnimatePresence } from "framer-motion";
+
+export const statusList = [{label: "Келемін", value:  "ACCEPT"}, {label : "Жұбыммен келемін", value: "ACCEPT_WITH_PAIR"}, {label: "Келе алмаймын", value: "NOT_ACCEPT"}]
 
 const RSVPForm = () => {
     const [formData, setFormData] = useState({
         name: "",
         attendance: "",
     })
+    const [errors, setErrors] = useState({})
     const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const validateForm = () => {
+        const newErrors = {}
+        if (!formData.name.trim()) {
+            newErrors.name = "Есіміңізді енгізіңіз"
+        }
+        if (!formData.attendance) {
+            newErrors.attendance = "Жауапты таңдаңыз"
+        }
+        setErrors(newErrors)
+        return Object.keys(newErrors).length === 0
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setIsModalOpen(true)
+        if (validateForm()) {
+            setIsModalOpen(true)
+        }
     }
 
     const closeModal = () => {
@@ -21,6 +39,7 @@ const RSVPForm = () => {
             name: "",
             attendance: "",
         })
+        setErrors({})
     }
 
     return (
@@ -37,42 +56,91 @@ const RSVPForm = () => {
 
             <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="relative">
-                    <input type="text" placeholder="Есіміңіз" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full pr-6 pl-2 py-3 border border-gray-300 rounded-lg text-2xl focus:outline-none focus:border-blue-400 placeholder:text-lg" />
+                    <input 
+                        type="text" 
+                        placeholder="Есіміңіз" 
+                        value={formData.name} 
+                        onChange={(e) => {
+                            setFormData({ ...formData, name: e.target.value })
+                            if (errors.name) setErrors({ ...errors, name: "" })
+                        }}
+                        className={`w-full pr-6 pl-2 py-3 border ${
+                            errors.name ? 'border-red-400' : 'border-gray-300'
+                        } rounded-lg text-2xl focus:outline-none focus:border-blue-400 placeholder:text-lg transition-colors`}
+                    />
                     <div className="absolute right-4 top-1/2 -translate-y-1/2">
                         <img src={HeartImg} alt="heart-img" className="w-6 h-6 object-contain" />
                     </div>
+                    <AnimatePresence>
+                        {errors.name && (
+                            <motion.p
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                className="text-red-500 text-sm mt-1 ml-2 font-montserrat"
+                            >
+                                {errors.name}
+                            </motion.p>
+                        )}
+                    </AnimatePresence>
                 </div>
 
-                <div className="text-left ml-4 space-y-1 font-montserrat">
-                    <p className="mb-4 text-base">
-                        Жұбыңызбен келсеңіз,
-                        <br />
-                        есімдеріңізді бірге жаза
-                        <br />
-                        кетіңіз
-                    </p>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                    <div className="text-left ml-4 space-y-1 font-montserrat">
+                        <p className="mb-4 text-base">
+                            Жұбыңызбен келсеңіз,
+                            <br />
+                            есімдеріңізді бірге жаза
+                            <br />
+                            кетіңіз
+                        </p>
 
-                    <div className="space-y-4">
-                        <label className="flex items-center space-x-3">
-                            <input type="radio" name="attendance" value="Келемін" onChange={(e) => setFormData({ ...formData, attendance: e.target.value })} className="w-5 h-5" />
-                            <span>Келемін</span>
-                        </label>
-                        <label className="flex items-center space-x-3">
-                            <input type="radio" name="attendance" value="Жұбыммен келемін" onChange={(e) => setFormData({ ...formData, attendance: e.target.value })} className="w-5 h-5" />
-                            <span>Жұбыммен келемін</span>
-                        </label>
-                        <label className="flex items-center space-x-3">
-                            <input type="radio" name="attendance" value="Келе алмаймын" onChange={(e) => setFormData({ ...formData, attendance: e.target.value })} className="w-5 h-5" />
-                            <span>Келе алмаймын</span>
-                        </label>
+                        <div className="space-y-4">
+                            {statusList.map((option) => (
+                                <label key={option.value} className="flex items-center space-x-3">
+                                    <input
+                                        type="radio"
+                                        name="attendance"
+                                        value={option.value}
+                                        checked={formData.attendance === option.value}
+                                        onChange={(e) => {
+                                            setFormData({ ...formData, attendance: e.target.value })
+                                            if (errors.attendance) setErrors({ ...errors, attendance: "" })
+                                        }}
+                                        className="w-5 h-5"
+                                    />
+                                    <span>{option.label}</span>
+                                </label>
+                            ))}
+                        </div>
+                        <AnimatePresence>
+                            {errors.attendance && (
+                                <motion.p
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    className="text-red-500 text-sm mt-2 font-montserrat"
+                                >
+                                    {errors.attendance}
+                                </motion.p>
+                            )}
+                        </AnimatePresence>
                     </div>
-                </div>
+                </motion.div>
 
-                <button type="submit" className="w-full py-3 px-6 bg-blue-base text-white rounded-full text-lg transition-colors font-montserrat">
+                <motion.button
+                    type="submit"
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full py-3 px-6 bg-blue-base text-white rounded-full text-lg transition-colors font-montserrat "
+                >
                     Жауапты жіберу
-                </button>
+                </motion.button>
             </form>
-            <CircleImg className="absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 opacity-20 -z-10" />
+            <CircleImg className="absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 opacity-10 -z-10" />
             <Modal isOpen={isModalOpen} onClose={closeModal} formData={formData} />
         </div>
     )
