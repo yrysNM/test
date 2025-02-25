@@ -44,7 +44,7 @@ function App() {
                     <Header />
                 </div>
 
-                <div className="text-center relative">
+                <div className="text-center relative overflow-hidden">
                     <div data-aos="fade-up">
                         <div className="text-center uppercase font-playfair mt-10 leading-[23px] text-adjust-auto origin-center">
                             құрметті ағайын-туыс,
