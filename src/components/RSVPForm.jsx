@@ -94,6 +94,7 @@ const RSVPForm = () => {
 
             <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="relative">
+                    <div className="relative">
                     <input 
                         type="text" 
                         placeholder="Есіміңіз" 
@@ -101,14 +102,15 @@ const RSVPForm = () => {
                         onChange={(e) => {
                             setFormData({ ...formData, name: e.target.value })
                             if (errors.name) setErrors({ ...errors, name: "" })
-                        }}
+                            }}
                         className={`w-full pr-6 pl-2 py-3 border ${
                             errors.name ? 'border-red-400' : 'border-gray-300'
-                        } rounded-lg text-2xl focus:outline-none focus:border-blue-400 placeholder:text-lg transition-colors`}
-                    />
+                            } rounded-lg text-2xl focus:outline-none focus:border-blue-400 placeholder:text-lg transition-colors`}
+                            />
                     <div className="absolute right-4 top-1/2 -translate-y-1/2">
                         <img src={HeartImg} alt="heart-img" className="w-6 h-6 object-contain" />
                     </div>
+                            </div>
                     <AnimatePresence>
                         {errors.name && (
                             <motion.p
