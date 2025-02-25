@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { statusList } from "./RSVPForm";
 
-const Modal = ({ isOpen, onClose, formData }) => {
+const Modal = ({ isOpen, onClose, formData, error }) => {
     if (!isOpen) return null;
 
     return (
@@ -21,22 +21,39 @@ const Modal = ({ isOpen, onClose, formData }) => {
                 className="bg-white/95 rounded-2xl p-8 shadow-xl relative z-10 max-w-md w-11/12 border-2 border-blue-base/20"
             >
                 <div className="text-center">
-                    <h3 className="text-2xl font-playfair mb-6">Рахмет!</h3>
-                    <p className="text-lg mb-4 font-montserrat">
-                        <span className="capitalize">
-                            {formData.name},
-                        </span>
-                         сіздің жауабыңыз қабылданды
-                    </p>
-                    <p className="text-gray-600 mb-6 font-montserrat">
-                        {statusList.find((status) => status.value === formData.attendance).label}
-                    </p>
-                    <button
-                        onClick={onClose}
-                        className="bg-blue-base text-white px-8 py-2 rounded-full hover:bg-blue-600 transition-colors font-montserrat"
-                    >
-                        Жабу
-                    </button>
+                    {error ? (
+                        <>
+                            <h3 className="text-2xl font-playfair mb-6 text-red-500">Қате!</h3>
+                            <p className="text-lg mb-6 font-montserrat">
+                                {error}
+                            </p>
+                            <button
+                                onClick={onClose}
+                                className="bg-red-500 text-white px-8 py-2 rounded-full hover:bg-red-600 transition-colors font-montserrat"
+                            >
+                                Қайта көру
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <h3 className="text-2xl font-playfair mb-6">Рахмет!</h3>
+                            <p className="text-lg mb-4 font-montserrat">
+                                <span className="capitalize">
+                                    {formData.name},
+                                </span>
+                                сіздің жауабыңыз қабылданды
+                            </p>
+                            <p className="text-gray-600 mb-6 font-montserrat">
+                                {statusList.find((status) => status.value === formData.attendance)?.label}
+                            </p>
+                            <button
+                                onClick={onClose}
+                                className="bg-blue-base text-white px-8 py-2 rounded-full transition-colors font-montserrat"
+                            >
+                                Жабу
+                            </button>
+                        </>
+                    )}
                 </div>
 
                 <button

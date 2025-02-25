@@ -6,6 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export const statusList = [{label: "Келемін", value:  "ACCEPT"}, {label : "Жұбыммен келемін", value: "ACCEPT_WITH_PAIR"}, {label: "Келе алмаймын", value: "NOT_ACCEPT"}]
 
+const LoadingSpinner = () => (
+    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+)
+
 const RSVPForm = () => {
     const [formData, setFormData] = useState({
         name: "",
@@ -13,6 +20,8 @@ const RSVPForm = () => {
     })
     const [errors, setErrors] = useState({})
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [serverError, setServerError] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
 
     const validateForm = () => {
         const newErrors = {}
@@ -26,20 +35,49 @@ const RSVPForm = () => {
         return Object.keys(newErrors).length === 0
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (validateForm()) {
-            setIsModalOpen(true)
+            setIsLoading(true)
+            try {
+                const response = await fetch("https://api.oryntap.kz/public/inviter/add", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({...formData, status: formData.attendance})
+                })
+
+                if (!response.ok) {
+                    throw new Error('Серверде қате шықты')
+                }
+
+                const data = await response.json()
+                if (data.code === 0) {
+                    setIsModalOpen(true)
+                    setServerError(null)
+                } else {
+                    throw new Error(data.message || 'Белгісіз қате')
+                }
+            } catch (error) {
+                setServerError(error.message)
+                setIsModalOpen(true)
+            } finally {
+                setIsLoading(false)
+            }
         }
     }
 
     const closeModal = () => {
         setIsModalOpen(false)
-        setFormData({
-            name: "",
-            attendance: "",
-        })
-        setErrors({})
+        if (!serverError) {
+            setFormData({
+                name: "",
+                attendance: "",
+            })
+            setErrors({})
+        }
+        setServerError(null)
     }
 
     return (
@@ -135,13 +173,23 @@ const RSVPForm = () => {
                 <motion.button
                     type="submit"
                     whileTap={{ scale: 0.95 }}
-                    className="w-full py-3 px-6 bg-blue-base text-white rounded-full text-lg transition-colors font-montserrat "
+                    disabled={isLoading}
+                    className={`w-full py-3 px-6 bg-blue-base text-white rounded-full text-lg transition-colors font-montserrat flex items-center justify-center space-x-2 ${
+                        isLoading ? 'opacity-75 cursor-not-allowed' : ''
+                    }`}
                 >
-                    Жауапты жіберу
+                    {isLoading ? (
+                        <>
+                            <LoadingSpinner />
+                            <span>Жіберілуде...</span>
+                        </>
+                    ) : (
+                        <span>Жауапты жіберу</span>
+                    )}
                 </motion.button>
             </form>
             <CircleImg className="absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 opacity-10 -z-10" />
-            <Modal isOpen={isModalOpen} onClose={closeModal} formData={formData} />
+            <Modal isOpen={isModalOpen} onClose={closeModal} formData={formData} error={serverError} />
         </div>
     )
 }
