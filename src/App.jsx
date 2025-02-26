@@ -85,7 +85,13 @@ function App() {
                                 </p>
                             </div>
                         </div>
-
+                        
+                        <div data-aos="fade-up">
+                        <Divider />
+                    <div className="text-xl  font-montserrat">ТОЙ ИЕЛЕРІ:</div>
+                    {/* <div className="text-xl font-playfair">АТА-ӘЖЕСІ</div> */}
+                    <div className="text-8xl font-cursive text-center font-kazak text-blue-base mt-2">Шалкар - Гулжан</div>
+                        </div>
 
                         <div data-aos="fade-up">
                             <Divider />
