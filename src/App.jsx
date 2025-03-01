@@ -7,10 +7,10 @@ import DividerImg from "./assets/img/divider.png"
 import Footer from "./components/Footer"
 import CircleAU from "./components/CircleAU"
 import RSVPForm from "./components/RSVPForm"
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import { useEffect } from 'react'
-import MusicPlayer from './components/MusicPlayer'
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { useEffect } from "react"
+import MusicPlayer from "./components/MusicPlayer"
 
 const Divider = () => {
     return (
@@ -32,7 +32,7 @@ function App() {
     useEffect(() => {
         AOS.init({
             duration: 1000,
-            once: true
+            once: true,
         })
     }, [])
 
@@ -61,7 +61,7 @@ function App() {
                         <div data-aos="fade-up">
                             <h2 className="uppercase font-montserrat text-xl">сіздерді ұлымыз</h2>
                         </div>
-                        
+
                         <CircleImg className="-right-56 -top-24 opacity-15 -z-10" />
 
                         <div data-aos="fade-up">
@@ -85,12 +85,12 @@ function App() {
                                 </p>
                             </div>
                         </div>
-                        
+
                         <div data-aos="fade-up">
-                        <Divider />
-                    <div className="text-xl  font-montserrat">ТОЙ ИЕЛЕРІ:</div>
-                    {/* <div className="text-xl font-playfair">АТА-ӘЖЕСІ</div> */}
-                    <div className="text-8xl font-cursive text-center font-kazak text-blue-base mt-2">Шалкар - Гулжан</div>
+                            <Divider />
+                            <div className="text-xl  font-montserrat">ТОЙ ИЕЛЕРІ:</div>
+                            {/* <div className="text-xl font-playfair">АТА-ӘЖЕСІ</div> */}
+                            <div className="text-8xl font-cursive text-center font-kazak text-blue-base mt-2">Шалкар - Гулжан</div>
                         </div>
 
                         <div data-aos="fade-up">
@@ -107,10 +107,10 @@ function App() {
                                         {day}
                                     </div>
                                 ))}
-                                {Array.from({ length: 31 }, (_, i) => (
-                                    <div key={i} className={`py-1 px-2 rounded-full ${i + 1 === 6 ? "relative" : ""}`}>
-                                        {i + 1}
-                                        {i + 1 === 6 && <img src={HeartImg} alt="test" className="animate-pulse absolute -top-1 left-1/2 -translate-x-1/2 w-10 h-10 -z-10" />}
+                                {Array.from({ length: 32 }, (_, i) => (
+                                    <div key={i} className={`py-1 px-2 rounded-full ${i === 6 ? "relative" : ""}`}>
+                                        {i === 0 ? null : i}
+                                        {i === 6 && <img src={HeartImg} alt="test" className="animate-pulse absolute -top-1 left-1/2 -translate-x-1/2 w-10 h-10 -z-10" />}
                                     </div>
                                 ))}
 
@@ -144,14 +144,13 @@ function App() {
                                 </div>
                                 <p className="mt-2 text-blue-base font-playfair text-3xl">"Eкi Жұлдыз"</p>
                             </div>
-                        <div id="map" className="mx-2 overflow-hidden rounded-lg border shadow mt-4 h-52" onClick={() => window.open("https://2gis.kz/semey/geo/70000001059047829")}>
-                        </div>
+                            <div id="map" className="mx-2 overflow-hidden rounded-lg border shadow mt-4 h-52" onClick={() => window.open("https://2gis.kz/semey/geo/70000001059047829")}></div>
                         </div>
                     </div>
                 </div>
 
                 <Divider />
-                    <RSVPForm />
+                <RSVPForm />
                 <Divider />
 
                 <Footer />
