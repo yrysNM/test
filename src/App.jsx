@@ -11,6 +11,7 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
 import MusicPlayer from "./components/MusicPlayer"
+import CrookedLine from "./components/CrookedLine"
 
 const Divider = () => {
     return (
@@ -90,7 +91,13 @@ function App() {
                             <Divider />
                             <div className="text-xl  font-montserrat">ТОЙ ИЕЛЕРІ:</div>
                             {/* <div className="text-xl font-playfair">АТА-ӘЖЕСІ</div> */}
-                            <div className="text-8xl font-cursive text-center font-kazak text-blue-base mt-2">Шалкар - Гулжан</div>
+                            <div className="text-8xl font-cursive text-center font-kazak text-blue-base mt-2">
+                                Шалкар
+                                <div className="absolute bottom-4 -z-1 left-[126px] text-sm">
+                                    <CrookedLine color="#8097c9" className="text-sm w-4 h-4" />
+                                </div>
+                                - Гулжан
+                            </div>
                         </div>
 
                         <div data-aos="fade-up">
