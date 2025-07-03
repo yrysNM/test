@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script type="module" src="./dist/super-search.js"></script>
+  </head>
+  <body>
+    <h1>Тест Super Search</h1>
+
+    <super-search query="Vue" token="abc123"></super-search>
+    <div id="app"></div>
+    <script>
+      const el = document.querySelector('super-search')
+      el.addEventListener('update:query', (e) => {
+        console.log('Query updated:', e.detail)
+      })
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
