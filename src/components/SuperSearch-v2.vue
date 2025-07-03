@@ -1066,6 +1066,7 @@ import { CheckCircleOutlined } from '@ant-design/icons-vue'
 // import BranchHistoryTrackingBox from '@/components/BranchHistoryTrackingBox.vue'
 // import UserBranchHistoryTrackingBox from '@/components/UserBranchHistoryTrackingBox.vue'
 import config from '@/config'
+import axios from 'axios'
 
 export default {
   props: {
@@ -1073,7 +1074,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    query: String,
     token: String,
     type: {
       type: String,
@@ -1195,7 +1195,7 @@ export default {
         .post(
           config.nakedBaseURL + 'order_service/protected/order/super-search',
           {
-            key: query,
+            key: this.mailNo,
             type: this.type,
           },
           {
