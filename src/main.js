@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
+import SuperSearch from './components/SuperSearch-v2.vue'
+import { createApp, defineCustomElement } from 'vue'
 import App from './App.vue'
 import i18n from './locales/index'
 
@@ -30,6 +31,9 @@ app.config.globalProperties.$onCopy = onCopy
 app.config.globalProperties.$print = print
 
 app.use(i18n).use(AntDv).mount('#app')
+
+const SuperSearchElement = defineCustomElement(SuperSearch)
+customElements.define('super-search', SuperSearchElement)
 
 function timeFormat(t, hm) {
   if (!t) {

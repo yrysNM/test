@@ -4,7 +4,7 @@
       <a-spin class="m-auto" size="large" />
     </div>
     <!-- <router-view /> -->
-    <config-provider :locale="locale" :component-size="$componentSize" hash-priority="high">
+    <config-provider :locale="locale" :component-size="componentSize" hash-priority="high">
       <!-- <router-view /> -->
       <super-search />
     </config-provider>

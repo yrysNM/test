@@ -14,7 +14,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: './src/main-ce.js',
+      entry: './src/main.js',
       name: 'SuperSearch',
       fileName: 'super-search',
       formats: ['es'],
