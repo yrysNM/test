@@ -1,5 +1,6 @@
 import { defineCustomElement } from 'vue'
-// import SuperSearch from './main.js'
 
-const SuperSearchElement = defineCustomElement(import('./main'))
-customElements.define('super-search', SuperSearchElement)
+import('./main.js').then((mod) => {
+  const SuperSearchElement = defineCustomElement(mod.default)
+  customElements.define('super-search', SuperSearchElement)
+})
