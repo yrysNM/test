@@ -32,7 +32,7 @@ app.config.globalProperties.$print = print
 
 app.use(i18n).use(AntDv).mount('#app')
 
-const SuperSearchElement = defineCustomElement(SuperSearch)
+const SuperSearchElement = defineCustomElement(app)
 customElements.define('super-search', SuperSearchElement)
 
 function timeFormat(t, hm) {
