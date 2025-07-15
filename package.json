@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3443",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
@@ -15,6 +15,7 @@
     "ant-design-vue": "^4.2.6",
     "axios": "^1.10.0",
     "dayjs": "^1.11.13",
+    "pinia": "^3.0.3",
     "vue": "^3.5.13",
     "vue-i18n": "^11.1.7"
   },

@@ -157,17 +157,10 @@
         <div class="">
           <div class="flex flex-wrap gap-2">
             <a-button size="small" @click="$onCopy(clientInfo?.id)">OID</a-button>
-            <a-button
-              size="small"
-              v-if="$store.getters.isSuperAdmin"
-              @click="onUpdateOrderJpid()"
-              >{{ $t('l_Change_JPID') }}</a-button
-            >
-            <a-button
-              v-if="$store.getters.isSuperAdmin"
-              size="small"
-              @click="openChangeBranchBox()"
-            >
+            <a-button size="small" v-if="true" @click="onUpdateOrderJpid()">{{
+              $t('l_Change_JPID')
+            }}</a-button>
+            <a-button v-if="true" size="small" @click="openChangeBranchBox()">
               {{ $t('l_Change_branch') }}
             </a-button>
             <a-button size="small" @click="orderWeightChange()">{{
@@ -959,6 +952,7 @@
         </div>
       </div>
     </a-modal>
+    <ChangeWeight ref="changeWeight" @confirm="onSearch"></ChangeWeight>
     <!-- <ChangeWeight ref="changeWeight" @confirm="onSearch"></ChangeWeight>
     <UpdateOrderJpidBox ref="updateOrderJpid" @confirm="onSearch"></UpdateOrderJpidBox>
     <change-user-branch-box ref="changeBranch" @confirm="onSearch"></change-user-branch-box>
@@ -1059,14 +1053,12 @@
 <script>
 // import http from '@/utils/http'
 import { CheckCircleOutlined } from '@ant-design/icons-vue'
-// import ChangeWeight from './change-weight/ChangeWeight.vue'
+import ChangeWeight from './change-weight/ChangeWeight.vue'
 // import UpdateOrderJpidBox from '@/components/UpdateOrderJpidBox.vue'
 // import ChangeUserBranchBox from '@/components/ChangeUserBranchBox.vue'
 // // import UserHistoryTrackingBox from '@/components/UserHistoryTrackingBox.vue'
 // import BranchHistoryTrackingBox from '@/components/BranchHistoryTrackingBox.vue'
 // import UserBranchHistoryTrackingBox from '@/components/UserBranchHistoryTrackingBox.vue'
-import config from '@/config'
-import axios from 'axios'
 
 export default {
   props: {
@@ -1079,10 +1071,14 @@ export default {
       type: String,
       default: 'MAIL_NO',
     },
+    queryId: {
+      type: String,
+      default: '',
+    },
   },
   components: {
-    // ChangeWeight,
-    // CheckCircleOutlined,
+    ChangeWeight,
+    CheckCircleOutlined,
     // UpdateOrderJpidBox,
     // ChangeUserBranchBox,
     // // UserHistoryTrackingBox,
@@ -1125,6 +1121,9 @@ export default {
   },
   created() {
     this.setColumns()
+    if (this.queryId.length) {
+      this.mailNo = this.queryId
+    }
   },
   mounted() {
     if (!this.hideSearch) {
@@ -1136,18 +1135,17 @@ export default {
   methods: {
     async onReveal() {
       try {
-        // const response = await http({
-        //   url: 'order/reveal?mailNo=' + (this.clientInfo?.mailNo || this.mailNo),
-        //   method: 'POST',
-        //   data: {},
-        // })
-        // if (response.status === 0) {
-        //   setTimeout(() => {
-        //     this.onSearch()
-        //   }, 200)
-        // }
+        const response = await this.$root.requestPOST(
+          'order/reveal?mailNo=' + (this.clientInfo?.mailNo || this.mailNo),
+          {},
+        )
+        if (response.status === 0) {
+          setTimeout(() => {
+            this.onSearch()
+          }, 200)
+        }
       } catch (error) {
-        // console.error(error)
+        console.error(error)
       }
     },
     getDaysDifference(startTimeMs, endTimeMs) {
@@ -1191,19 +1189,11 @@ export default {
         this.mailNo = this.mailNo.toUpperCase()
       }
       this.onReset()
-      axios
-        .post(
-          config.nakedBaseURL + 'order_service/protected/order/super-search',
-          {
-            key: this.mailNo,
-            type: this.type,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${this.token}`,
-            },
-          },
-        )
+      this.$root
+        .requestPOST('order_service/protected/order/super-search', {
+          key: this.mailNo,
+          type: this.type,
+        })
         .then((res) => {
           if (res.status == 0) {
             this.chinaInfo = JSON.parse(JSON.stringify(res.data.chinaResponse?.data))
@@ -1327,6 +1317,7 @@ export default {
 </script>
 
 <style>
+@import '../assets/style/google-font.css';
 .ant-descriptions .ant-descriptions-header {
   margin-top: 8px;
   margin-bottom: 8px;

@@ -1,13 +1,10 @@
 import SuperSearch from './components/SuperSearch-v2.vue'
-import { createApp, defineCustomElement } from 'vue'
+import { createApp, defineCustomElement, h } from 'vue'
 import App from './App.vue'
 import i18n from './locales/index'
 
-import './assets/base.css'
-import './assets/main.css'
-import './assets/style/google-font.css'
-
 import dayjs from 'dayjs'
+import { createPinia } from 'pinia'
 
 import AntDv, { message } from 'ant-design-vue'
 import 'ant-design-vue/dist/reset.css'
@@ -29,8 +26,7 @@ app.config.globalProperties.$onlyFirstUpperCase = onlyFirstUpperCase
 app.config.globalProperties.$componentSize = 'small'
 app.config.globalProperties.$onCopy = onCopy
 app.config.globalProperties.$print = print
-
-app.use(i18n).use(AntDv).mount('#app')
+app.use(i18n).use(AntDv).use(createPinia()).mount('#app')
 
 const SuperSearchElement = defineCustomElement(app)
 customElements.define('super-search', SuperSearchElement)

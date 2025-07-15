@@ -1,15 +1,11 @@
 <template>
   <div class="app-area text-base">
-    <div class="fixed inset-0 z-[99999] flex" v-if="false">
+    <div class="fixed inset-0 z-[99999] flex" v-if="isLoading">
       <a-spin class="m-auto" size="large" />
     </div>
-    <!-- <router-view /> -->
-    <config-provider :locale="locale" :component-size="componentSize" hash-priority="high">
-      <!-- <router-view /> -->
-      <super-search />
+    <config-provider :locale="locale" :component-size="$componentSize" hash-priority="high">
+      <super-search :queryId="queryId" />
     </config-provider>
-
-    <!--        <BlogNotifyModal ref="blogNotifyModal"/>-->
   </div>
 </template>
 <script>
@@ -19,12 +15,14 @@ import kkKZ from 'ant-design-vue/es/locale/kk_KZ'
 import ru_RU from 'ant-design-vue/es/locale/ru_RU'
 import SuperSearch from './components/SuperSearch-v2.vue'
 
-// import { mapGetters } from "vuex"
-
 import axios from 'axios'
 import { Spin } from 'ant-design-vue'
 import { ConfigProvider } from 'ant-design-vue'
 import config from '@/config'
+import { useToken } from './lib/store'
+import { mapActions } from 'pinia'
+import { http } from './utils/http'
+
 const BaseUrl = config.baseURL
 
 export default {
@@ -56,20 +54,34 @@ export default {
       }
       return enUS
     },
+    queryId() {
+      const queryString = window.location.search
+      const params = new URLSearchParams(queryString)
+      return params.has('searchId') ? params.get('searchId') : ''
+    },
   },
   mounted() {
     this.version = version
     this.webUrl = 'V'
+    this.setTokenAttribute()
 
-    // setTimeout(()=>{
-    //     // 打开一个新的浏览器窗口或标签页
-    //     // window.open('applinks:kz.inexport.app', '_blank');
-    //     // window.open('weixin://', '_blank');
-    //     // window.open('weixin://')
-    //
-    // },2000)
+    this.updateToken()
   },
   methods: {
+    ...mapActions(useToken, ['setToken']),
+    updateToken() {
+      window.addEventListener('message', (e) => {
+        const res = e.data
+        if (res.type === 'refresh-token' && res.data) {
+          this.setToken(res.data)
+        }
+      })
+    },
+    setTokenAttribute() {
+      const _getROOTElement = document.getElementById('app')
+      const _token = _getROOTElement.getAttribute('token')
+      this.setToken(_token)
+    },
     downloadFileByToken(token) {
       window.open(BaseUrl + 'public/download/token?token=' + token)
     },
@@ -119,10 +131,52 @@ export default {
         }
       })
     },
+    requestPOST(url, body, isHaveLoading = true) {
+      this.isLoading = isHaveLoading
+      return http(url, body).finally(() => (this.isLoading = false))
+    },
   },
 }
 </script>
-<style>
+<style scoped>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+
 #nprogress .bar {
   background-color: #1677ff !important;
   height: 5px !important;
