@@ -19,9 +19,8 @@ import axios from 'axios'
 import { Spin } from 'ant-design-vue'
 import { ConfigProvider } from 'ant-design-vue'
 import config from '@/config'
-import { useToken } from './lib/store'
-import { mapActions } from 'pinia'
-import { http } from './utils/http'
+import { useCommonStore } from './lib/store'
+import { mapActions, mapState } from 'pinia'
 
 const BaseUrl = config.baseURL
 
@@ -43,6 +42,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(useCommonStore, ['getServiceBaseUrl']),
     locale() {
       switch (this.$i18n.locale) {
         case 'en':
@@ -65,15 +65,18 @@ export default {
     this.webUrl = 'V'
     this.setTokenAttribute()
 
-    this.updateToken()
+    this.updateTokenAndServiceName()
   },
   methods: {
-    ...mapActions(useToken, ['setToken']),
-    updateToken() {
+    ...mapActions(useCommonStore, ['setToken', 'setServiceBaseUrl']),
+    updateTokenAndServiceName() {
       window.addEventListener('message', (e) => {
         const res = e.data
         if (res.type === 'refresh-token' && res.data) {
           this.setToken(res.data)
+        }
+        if (res.type === 'serviceName' && res.data) {
+          this.setServiceBaseUrl(res.data)
         }
       })
     },
@@ -130,10 +133,6 @@ export default {
           this.showRefreshWebBox = true
         }
       })
-    },
-    requestPOST(url, body, isHaveLoading = true) {
-      this.isLoading = isHaveLoading
-      return http(url, body).finally(() => (this.isLoading = false))
     },
   },
 }

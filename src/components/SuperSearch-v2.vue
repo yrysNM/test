@@ -953,14 +953,13 @@
       </div>
     </a-modal>
     <ChangeWeight ref="changeWeight" @confirm="onSearch"></ChangeWeight>
-    <!-- <ChangeWeight ref="changeWeight" @confirm="onSearch"></ChangeWeight>
+    <user-history-tracking-box ref="userHistoryTracking"></user-history-tracking-box>
     <UpdateOrderJpidBox ref="updateOrderJpid" @confirm="onSearch"></UpdateOrderJpidBox>
     <change-user-branch-box ref="changeBranch" @confirm="onSearch"></change-user-branch-box>
-    <user-history-tracking-box ref="userHistoryTracking"></user-history-tracking-box>
     <branch-history-tracking-box ref="branchHistoryTracking"></branch-history-tracking-box>
     <user-branch-history-tracking-box
       ref="userBranchHistoryTracking"
-    ></user-branch-history-tracking-box> -->
+    ></user-branch-history-tracking-box>
     <a-modal v-model:open="shipInfoModal" :title="$t('l_Info')" :footer="null" width="600px">
       <div v-if="clientInfo" class="flex flex-col gap-4">
         <div class="grid grid-cols-2 gap-4">
@@ -1051,14 +1050,15 @@
 </template>
 
 <script>
-// import http from '@/utils/http'
+// import {http }from '@/utils/http'
 import { CheckCircleOutlined } from '@ant-design/icons-vue'
 import ChangeWeight from './change-weight/ChangeWeight.vue'
-// import UpdateOrderJpidBox from '@/components/UpdateOrderJpidBox.vue'
-// import ChangeUserBranchBox from '@/components/ChangeUserBranchBox.vue'
-// // import UserHistoryTrackingBox from '@/components/UserHistoryTrackingBox.vue'
-// import BranchHistoryTrackingBox from '@/components/BranchHistoryTrackingBox.vue'
-// import UserBranchHistoryTrackingBox from '@/components/UserBranchHistoryTrackingBox.vue'
+import UserHistoryTrackingBox from '@/components/UserHistoryTrackingBox.vue'
+import UpdateOrderJpidBox from '@/components/UpdateOrderJpidBox.vue'
+import ChangeUserBranchBox from '@/components/ChangeUserBranchBox.vue'
+import { http } from '@/utils/http'
+import BranchHistoryTrackingBox from '@/components/BranchHistoryTrackingBox.vue'
+import UserBranchHistoryTrackingBox from '@/components/UserBranchHistoryTrackingBox.vue'
 
 export default {
   props: {
@@ -1078,12 +1078,12 @@ export default {
   },
   components: {
     ChangeWeight,
+    UserHistoryTrackingBox,
     CheckCircleOutlined,
-    // UpdateOrderJpidBox,
-    // ChangeUserBranchBox,
-    // // UserHistoryTrackingBox,
-    // BranchHistoryTrackingBox,
-    // UserBranchHistoryTrackingBox,
+    UpdateOrderJpidBox,
+    ChangeUserBranchBox,
+    BranchHistoryTrackingBox,
+    UserBranchHistoryTrackingBox,
   },
   data() {
     return {
@@ -1135,9 +1135,10 @@ export default {
   methods: {
     async onReveal() {
       try {
-        const response = await this.$root.requestPOST(
+        const response = await http(
           'order/reveal?mailNo=' + (this.clientInfo?.mailNo || this.mailNo),
           {},
+          { isServiceBaseUrl: false },
         )
         if (response.status === 0) {
           setTimeout(() => {
@@ -1189,30 +1190,32 @@ export default {
         this.mailNo = this.mailNo.toUpperCase()
       }
       this.onReset()
-      this.$root
-        .requestPOST('order_service/protected/order/super-search', {
+      http(
+        'order_service/protected/order/super-search',
+        {
           key: this.mailNo,
           type: this.type,
-        })
-        .then((res) => {
-          if (res.status == 0) {
-            this.chinaInfo = JSON.parse(JSON.stringify(res.data.chinaResponse?.data))
-            this.warehouseInfo = JSON.parse(JSON.stringify(res.data.warehouseResponse?.data))
-            this.branchInfo = JSON.parse(JSON.stringify(res.data.branchResponse?.data))
-            this.clientInfo = JSON.parse(JSON.stringify(res.data.clientResponse?.data))
-            this.domesticInfo = JSON.parse(JSON.stringify(res.data.domesticResponse?.data))
-            this.trackList = JSON.parse(JSON.stringify(res.data.trackList.reverse() || []))
-            this.exceptionTrackList = JSON.parse(
-              JSON.stringify(res.data.exceptionTrackList.reverse() || []),
-            )
-            this.courierHistoryList = JSON.parse(
-              JSON.stringify(
-                res.data.branchResponse?.data?.lastMailOrderInfoResponse?.historyList || [],
-              ),
-            )
-            this.isLoad = true
-          }
-        })
+        },
+        { isServiceBaseUrl: false },
+      ).then((res) => {
+        if (res.status == 0) {
+          this.chinaInfo = JSON.parse(JSON.stringify(res.data.chinaResponse?.data))
+          this.warehouseInfo = JSON.parse(JSON.stringify(res.data.warehouseResponse?.data))
+          this.branchInfo = JSON.parse(JSON.stringify(res.data.branchResponse?.data))
+          this.clientInfo = JSON.parse(JSON.stringify(res.data.clientResponse?.data))
+          this.domesticInfo = JSON.parse(JSON.stringify(res.data.domesticResponse?.data))
+          this.trackList = JSON.parse(JSON.stringify(res.data.trackList.reverse() || []))
+          this.exceptionTrackList = JSON.parse(
+            JSON.stringify(res.data.exceptionTrackList.reverse() || []),
+          )
+          this.courierHistoryList = JSON.parse(
+            JSON.stringify(
+              res.data.branchResponse?.data?.lastMailOrderInfoResponse?.historyList || [],
+            ),
+          )
+          this.isLoad = true
+        }
+      })
     },
     onReset() {
       this.isLoad = false

@@ -47,7 +47,7 @@
           </a-timeline>
           <a-empty v-if="dataList.length == 0 && isLoad == false"></a-empty>
         </a-tab-pane>
-        <a-tab-pane :key="0" :tab="$t('l_Edit')" v-if="$store.getters.isSuperAdmin">
+        <a-tab-pane :key="0" :tab="$t('l_Edit')" v-if="false">
           <a-form layout="vertical" :model="info" style="margin-bottom: 20px" @finish="onSubmit()">
             <a-row :gutter="[8, 0]">
               <a-col :xs="24" :sm="24" :lg="24">
@@ -128,6 +128,7 @@ import cloudImage from '@/components/cloud-image.vue'
 import { ArrowRightOutlined } from '@ant-design/icons-vue'
 import axios from 'axios'
 import baseUrl from '@/config'
+import { http } from '@/utils/http'
 
 let infoTemp = {
   mailNo: null,
@@ -175,7 +176,7 @@ export default {
       if (!this.info.mailNo || !this.info.weight || !this.info.imgUrl) {
         return
       }
-      this.$root.requestPOST('order/change-weight', this.info).then((res) => {
+      http('order/change-weight', this.info).then((res) => {
         if (res.status == 0) {
           this.$emit('confirm', this.info.tracecode)
           message.success(this.$t('l_Succeed'))
@@ -187,14 +188,13 @@ export default {
       if (this.isLoad) return
       this.dataList = []
       this.isLoad = true
-      this.$root
-        .requestPOST('order_service/protected/order/weight-history', { mailNo: this.mailNo })
+      http('order/weight-history', { mailNo: this.mailNo })
         .then((res) => {
           if (res.status == 0) {
             this.dataList = res.data?.reverse()
-            this.isLoad = false
           }
         })
+        .finally(() => (this.isLoad = false))
     },
     async uploadFile(file, tag) {
       this.customRequest(file, tag)
