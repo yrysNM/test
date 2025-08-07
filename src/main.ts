@@ -2,8 +2,11 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import { initYandexMetrika } from "yandex-metrika-vue3";
+import { MotionPlugin } from "@vueuse/motion";
 
 const app = createApp(App);
+
+app.use(MotionPlugin);
 
 app.use(initYandexMetrika, {
   scriptSrc: "https://mc.yandex.ru/metrika/tag.js",
