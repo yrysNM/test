@@ -16,10 +16,10 @@ const footerMotion = useMotion(footerRef, {
         <!-- Logo & Info -->
         <div class="col-span-1">
           <div class="flex items-center mb-4">
-            <img src="../assets/logo.svg" alt="PhotoFinder Logo" class="h-8 w-8 text-primary-400" />
+            <img src="../assets/logo.svg" alt="Логотип ФотоПоиск" class="h-8 w-8 text-primary-400" />
             <span class="text-xl font-bold ml-2">PhotoFinder</span>
           </div>
-          <p class="text-gray-400 mb-4">Powerful face recognition technology for your photos and videos.</p>
+          <p class="text-gray-400 mb-4">Мощная технология распознавания лиц для ваших фотографий.</p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -41,33 +41,33 @@ const footerMotion = useMotion(footerRef, {
         
         <!-- Quick Links -->
         <div>
-          <h4 class="text-lg font-semibold mb-4">Product</h4>
+          <h4 class="text-lg font-semibold mb-4">Продукт</h4>
           <ul class="space-y-2">
-            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-            <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
-            <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Функции</a></li>
+            <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors">Как это работает</a></li>
+            <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Цены</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
           </ul>
         </div>
         
         <!-- Company -->
         <div>
-          <h4 class="text-lg font-semibold mb-4">Company</h4>
+          <h4 class="text-lg font-semibold mb-4">Компания</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">О нас</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Карьера</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Блог</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Контакты</a></li>
           </ul>
         </div>
         
         <!-- Legal -->
         <div>
-          <h4 class="text-lg font-semibold mb-4">Legal</h4>
+          <h4 class="text-lg font-semibold mb-4">Юридическая информация</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Политика конфиденциальности</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Условия использования</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Политика использования файлов cookie</a></li>
             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">GDPR</a></li>
           </ul>
         </div>
@@ -75,9 +75,10 @@ const footerMotion = useMotion(footerRef, {
       
       <!-- Copyright -->
       <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-400 text-sm">© {{ new Date().getFullYear() }} PhotoFinder. All rights reserved.</p>
+        <p class="text-gray-400 text-sm">© {{ new Date().getFullYear() }} ФотоПоиск. Все права защищены.</p>
         <div class="mt-4 md:mt-0">
           <select class="bg-gray-800 text-gray-400 text-sm rounded-md px-3 py-1 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-primary-500">
+            <option value="ru">Русский</option>
             <option value="en">English</option>
             <option value="fr">Français</option>
             <option value="es">Español</option>

@@ -11,50 +11,50 @@ const titleMotion = useMotion(titleRef, {
 const plans = [
   {
     id: 1,
-    name: 'Free',
+    name: 'Бесплатный',
     price: '0',
-    description: 'Perfect for trying out the service',
+    description: 'Идеально для ознакомления с сервисом',
     features: [
-      'Up to 1,000 photos',
-      'Basic face recognition',
-      'Standard processing speed',
-      'Email support',
-      '1 user account',
+      'До 1 000 фотографий',
+      'Базовое распознавание лиц',
+      'Стандартная скорость обработки',
+      'Поддержка по электронной почте',
+      '1 учетная запись пользователя',
     ],
-    cta: 'Get Started',
+    cta: 'Начать',
     popular: false,
   },
   {
     id: 2,
-    name: 'Pro',
+    name: 'Про',
     price: '9.99',
-    description: 'For individuals with larger collections',
+    description: 'Для частных лиц с большими коллекциями',
     features: [
-      'Up to 10,000 photos',
-      'Advanced face recognition',
-      'Faster processing speed',
-      'Priority email support',
-      '2 user accounts',
-      'Cloud storage integration',
+      'До 10 000 фотографий',
+      'Продвинутое распознавание лиц',
+      'Более быстрая обработка',
+      'Приоритетная поддержка по email',
+      '2 учетные записи пользователей',
+      'Интеграция с облачным хранилищем',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Начать бесплатную пробную версию',
     popular: true,
   },
   {
     id: 3,
-    name: 'Business',
+    name: 'Бизнес',
     price: '29.99',
-    description: 'For professional photographers & teams',
+    description: 'Для профессиональных фотографов и команд',
     features: [
-      'Unlimited photos',
-      'Premium face recognition',
-      'Fastest processing speed',
-      '24/7 priority support',
-      'Unlimited user accounts',
-      'Advanced API access',
-      'Custom branding options',
+      'Неограниченное количество фотографий',
+      'Премиум распознавание лиц',
+      'Самая быстрая обработка',
+      'Приоритетная поддержка 24/7',
+      'Неограниченное количество учетных записей',
+      'Расширенный доступ к API',
+      'Настраиваемые варианты брендинга',
     ],
-    cta: 'Contact Sales',
+    cta: 'Связаться с отделом продаж',
     popular: false,
   },
 ];
@@ -94,8 +94,8 @@ onMounted(() => {
     <div class="container">
       <!-- Section Header -->
       <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2 ref="titleRef" class="mb-4">Face Recognition: Powerful yet affordable</h2>
-        <p class="text-xl text-gray-600">Choose the plan that's right for you. All plans include a 14-day free trial.</p>
+        <h2 ref="titleRef" class="mb-4">Распознавание лиц: Мощное, но доступное</h2>
+        <p class="text-xl text-gray-600">Выберите план, который подходит именно вам. Все планы включают 14-дневную бесплатную пробную версию.</p>
       </div>
       
       <!-- Pricing Cards -->
@@ -109,7 +109,7 @@ onMounted(() => {
         >
           <!-- Popular Badge -->
           <div v-if="plan.popular" class="bg-primary-600 text-white text-sm font-semibold py-1 px-3 absolute top-0 right-0 rounded-bl-lg">
-            Most Popular
+            Самый популярный
           </div>
           
           <!-- Plan Header -->
@@ -144,7 +144,7 @@ onMounted(() => {
       
       <!-- FAQ Link -->
       <div class="text-center mt-12">
-        <p class="text-gray-600">Have questions about our pricing? <a href="#" class="text-primary-600 font-medium">View our FAQ</a></p>
+        <p class="text-gray-600">Есть вопросы о наших ценах? <a href="#" class="text-primary-600 font-medium">Посмотрите наш FAQ</a></p>
       </div>
     </div>
   </section>

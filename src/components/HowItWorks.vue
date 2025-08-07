@@ -11,20 +11,20 @@ const titleMotion = useMotion(titleRef, {
 const steps = [
   {
     id: 1,
-    title: 'Create Your Account',
-    description: 'Sign up for a free account to get started with PhotoFinder.',
+    title: 'Создайте аккаунт',
+    description: 'Зарегистрируйтесь для бесплатного аккаунта, чтобы начать работу с ФотоПоиском.',
     icon: '/step1.svg', // Placeholder for now
   },
   {
     id: 2,
-    title: 'Upload Your Photos',
-    description: 'Upload your photos or connect to your cloud storage services.',
+    title: 'Загрузите фотографии',
+    description: 'Загрузите ваши фотографии или подключитесь к облачным сервисам хранения.',
     icon: '/step2.svg', // Placeholder for now
   },
   {
     id: 3,
-    title: 'Automatic Processing',
-    description: 'Our AI automatically detects and groups faces in your photos.',
+    title: 'Автоматическая обработка',
+    description: 'Наш ИИ автоматически обнаруживает и группирует лица на ваших фотографиях.',
     icon: '/step3.svg', // Placeholder for now
   },
 ];
@@ -64,8 +64,8 @@ onMounted(() => {
     <div class="container">
       <!-- Section Header -->
       <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2 ref="titleRef" class="mb-4">How it works: Easy 3 Step</h2>
-        <p class="text-xl text-gray-600">Getting started with PhotoFinder is quick and easy. Follow these simple steps.</p>
+        <h2 ref="titleRef" class="mb-4">Как это работает: Легкие 3 шага</h2>
+        <p class="text-xl text-gray-600">Начать работу с ФотоПоиском быстро и легко. Следуйте этим простым шагам.</p>
       </div>
       
       <!-- Steps -->
@@ -99,7 +99,7 @@ onMounted(() => {
       
       <!-- CTA -->
       <div class="mt-16 text-center">
-        <button class="btn-primary">Get Started Now</button>
+        <button class="btn-primary">Начать сейчас</button>
       </div>
     </div>
   </section>

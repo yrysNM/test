@@ -11,23 +11,23 @@ const titleMotion = useMotion(titleRef, {
 const testimonials = [
   {
     id: 1,
-    content: 'PhotoFinder has completely transformed how I organize my event photography. The face recognition is incredibly accurate!',
-    author: 'Sarah Johnson',
-    role: 'Professional Photographer',
+    content: 'ФотоПоиск полностью изменил то, как я организую свои фотографии с мероприятий. Распознавание лиц невероятно точное!',
+    author: 'Сара Джонсон',
+    role: 'Профессиональный фотограф',
     avatar: 'https://placehold.co/100x100?text=SJ',
   },
   {
     id: 2,
-    content: 'As a family historian, this tool has been invaluable. I can now easily sort through decades of family photos in minutes.',
-    author: 'Michael Chen',
-    role: 'Family Historian',
+    content: 'Как семейному историку, этот инструмент оказался бесценным. Теперь я могу легко просматривать десятилетия семейных фотографий за считанные минуты.',
+    author: 'Михаил Чен',
+    role: 'Семейный историк',
     avatar: 'https://placehold.co/100x100?text=MC',
   },
   {
     id: 3,
-    content: 'The group organization feature is a game-changer for our marketing team. We can quickly find all photos from specific events.',
-    author: 'Emily Rodriguez',
-    role: 'Marketing Director',
+    content: 'Функция групповой организации - настоящий прорыв для нашей маркетинговой команды. Мы можем быстро найти все фотографии с определенных мероприятий.',
+    author: 'Эмили Родригес',
+    role: 'Директор по маркетингу',
     avatar: 'https://placehold.co/100x100?text=ER',
   },
 ];
@@ -63,9 +63,9 @@ onMounted(() => {
 
 // Stats
 const stats = [
-  { id: 1, value: '5M+', label: 'Photos Processed' },
-  { id: 2, value: '99.7%', label: 'Recognition Accuracy' },
-  { id: 3, value: '10K+', label: 'Happy Users' },
+  { id: 1, value: '5M+', label: 'Обработанных фотографий' },
+  { id: 2, value: '99.7%', label: 'Точность распознавания' },
+  { id: 3, value: '10K+', label: 'Довольных пользователей' },
 ];
 
 const statRefs = ref([]);
@@ -103,8 +103,8 @@ onMounted(() => {
     <div class="container">
       <!-- Section Header -->
       <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2 ref="titleRef" class="mb-4">What our users have to say</h2>
-        <p class="text-xl text-gray-600">Thousands of users trust PhotoFinder for their photo organization needs.</p>
+        <h2 ref="titleRef" class="mb-4">Что говорят наши пользователи</h2>
+        <p class="text-xl text-gray-600">Тысячи пользователей доверяют ФотоПоиску для организации своих фотографий.</p>
       </div>
       
       <!-- Testimonials Grid -->

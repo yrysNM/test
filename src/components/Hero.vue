@@ -35,24 +35,24 @@ const imageMotion = useMotion(imageRef, {
         <!-- Text Content -->
         <div class="space-y-8">
           <h1 ref="titleRef" class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Group-Based Photo and Video Face Recognition
+            Групповое распознавание лиц на фото
           </h1>
           <p ref="descriptionRef" class="text-xl text-gray-600 max-w-lg">
-            Automatically identify and organize photos by faces. Perfect for events, family albums, and professional photography.
+            Автоматически идентифицируйте и организуйте фотографии по лицам. Идеально для мероприятий, семейных альбомов и профессиональной фотографии.
           </p>
           <div ref="ctaRef" class="flex flex-col sm:flex-row gap-4">
-            <button class="btn-primary">Get Started Free</button>
-            <button class="btn-secondary">See How It Works</button>
+            <button class="btn-primary">Начать бесплатно</button>
+            <button class="btn-secondary">Как это работает</button>
           </div>
           
           <!-- Trusted By -->
           <div class="pt-8 border-t border-gray-200">
-            <p class="text-sm text-gray-500 mb-4">Trusted by leading companies</p>
+            <p class="text-sm text-gray-500 mb-4">Нам доверяют ведущие компании</p>
             <div class="flex flex-wrap gap-8 items-center opacity-70">
-              <img src="https://placehold.co/100x40?text=Logo1" alt="Company logo" class="h-8">
-              <img src="https://placehold.co/100x40?text=Logo2" alt="Company logo" class="h-8">
-              <img src="https://placehold.co/100x40?text=Logo3" alt="Company logo" class="h-8">
-              <img src="https://placehold.co/100x40?text=Logo4" alt="Company logo" class="h-8">
+              <img src="https://placehold.co/100x40?text=Logo1" alt="Логотип компании" class="h-8">
+              <img src="https://placehold.co/100x40?text=Logo2" alt="Логотип компании" class="h-8">
+              <img src="https://placehold.co/100x40?text=Logo3" alt="Логотип компании" class="h-8">
+              <img src="https://placehold.co/100x40?text=Logo4" alt="Логотип компании" class="h-8">
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ const imageMotion = useMotion(imageRef, {
           <div class="relative z-10 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
             <img 
               src="https://placehold.co/600x800?text=App+Screenshot" 
-              alt="PhotoFinder App" 
+              alt="Приложение ФотоПоиск" 
               class="w-full h-auto"
             >
           </div>

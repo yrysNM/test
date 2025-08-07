@@ -10,28 +10,28 @@ const count = ref(0)
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="count++">счетчик: {{ count }}</button>
     <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
+      Отредактируйте
+      <code>components/HelloWorld.vue</code> чтобы протестировать HMR
     </p>
   </div>
 
   <p>
-    Check out
+    Ознакомьтесь с
     <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
       >create-vue</a
-    >, the official Vue + Vite starter
+    >, официальным стартером Vue + Vite
   </p>
   <p>
-    Learn more about IDE Support for Vue in the
+    Узнайте больше о поддержке IDE для Vue в
     <a
       href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
       target="_blank"
-      >Vue Docs Scaling up Guide</a
+      >Руководстве по масштабированию Vue</a
     >.
   </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <p class="read-the-docs">Нажмите на логотипы Vite и Vue, чтобы узнать больше</p>
 </template>
 
 <style scoped>
