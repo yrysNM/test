@@ -49,7 +49,7 @@ const buttonMotion = useMotion(buttonRef, {
 
       <!-- CTA Button -->
       <div ref="buttonRef" class="hidden md:block">
-        <button class="btn-primary">Начать</button>
+        <button class="btn-primary">Создать событие</button>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -66,7 +66,7 @@ const buttonMotion = useMotion(buttonRef, {
         <a href="#how-it-works" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Как это работает</a>
         <a href="#testimonials" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Отзывы</a>
         <a href="#pricing" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Цены</a>
-        <button class="btn-primary w-full">Начать</button>
+        <button class="btn-primary w-full">Создать событие</button>
       </div>
     </div>
   </header>

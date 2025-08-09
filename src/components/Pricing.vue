@@ -10,21 +10,6 @@ const titleMotion = useMotion(titleRef, {
 
 const plans = [
   {
-    id: 1,
-    name: 'Бесплатный',
-    price: '0',
-    description: 'Идеально для ознакомления с сервисом',
-    features: [
-      'До 1 000 фотографий',
-      'Базовое распознавание лиц',
-      'Стандартная скорость обработки',
-      'Поддержка по электронной почте',
-      '1 учетная запись пользователя',
-    ],
-    cta: 'Начать',
-    popular: false,
-  },
-  {
     id: 2,
     name: 'Про',
     price: '9.99',
@@ -38,7 +23,7 @@ const plans = [
       'Интеграция с облачным хранилищем',
     ],
     cta: 'Начать бесплатную пробную версию',
-    popular: true,
+    popular: false,
   },
   {
     id: 3,
@@ -99,14 +84,14 @@ onMounted(() => {
       </div>
       
       <!-- Pricing Cards -->
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         <div 
           v-for="(plan, index) in plans" 
           :key="plan.id"
           :ref="el => setPlanRef(el, index)"
-          class="bg-white rounded-xl overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg relative"
+          class="bg-white rounded-xl overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-lg relative w-10/12"
           :class="{ 'md:-mt-4 md:mb-4 shadow-lg': plan.popular }"
-        >
+        > 
           <!-- Popular Badge -->
           <div v-if="plan.popular" class="bg-primary-600 text-white text-sm font-semibold py-1 px-3 absolute top-0 right-0 rounded-bl-lg">
             Самый популярный

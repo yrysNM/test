@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Camera Body -->
+  <rect x="4" y="10" width="24" height="16" rx="2" fill="#ffffff" />
+  
+  <!-- Lens -->
+  <circle cx="16" cy="18" r="6" fill="#3b7dff" />
+  <circle cx="16" cy="18" r="3" fill="#ffffff" />
+  
+  <!-- Flash -->
+  <rect x="8" y="6" width="4" height="4" rx="1" fill="#ffffff" />
+</svg>

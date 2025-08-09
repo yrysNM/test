@@ -41,7 +41,7 @@ const imageMotion = useMotion(imageRef, {
             Автоматически идентифицируйте и организуйте фотографии по лицам. Идеально для мероприятий, семейных альбомов и профессиональной фотографии.
           </p>
           <div ref="ctaRef" class="flex flex-col sm:flex-row gap-4">
-            <button class="btn-primary">Начать бесплатно</button>
+            <button class="btn-primary">Создать событие</button>
             <button class="btn-secondary">Как это работает</button>
           </div>
           
