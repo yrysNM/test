@@ -78,8 +78,8 @@ onMounted(() => {
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div
           v-for="(step, index) in steps"
-          :key="step.id"
-          :ref="(el) => setStepRef(el as Element, index)"
+          :key="index"
+          :ref="(el) => setStepRef(el, index)"
           class="flex flex-col items-center text-center"
         >
           <!-- Step Icon -->
