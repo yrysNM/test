@@ -60,7 +60,7 @@ const imageMotion = useMotion(imageRef, {
           >
             <img
               src="https://placehold.co/600x800?text=App+Screenshot"
-              alt="Приложение ФотоПоиск"
+              alt="Приложение PhotoFinder"
               class="w-full h-auto"
             />
           </div>

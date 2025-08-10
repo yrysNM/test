@@ -8,7 +8,7 @@
   <!-- App Header -->
   <rect x="50" y="50" width="700" height="60" rx="8 8 0 0" fill="#f1f5f9" />
   <circle cx="85" cy="80" r="15" fill="#3b7dff" />
-  <text x="110" y="85" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#0f172a">ФотоПоиск</text>
+  <text x="110" y="85" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#0f172a">PhotoFinder</text>
   
   <!-- Search Bar -->
   <rect x="300" y="65" width="200" height="30" rx="15" fill="white" stroke="#cbd5e1" stroke-width="1" />

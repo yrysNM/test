@@ -18,8 +18,8 @@ const footerMotion = useMotion(footerRef, {
           <div class="flex items-center mb-4">
             <img
               src="../assets/logo.svg"
-              alt="Логотип ФотоПоиск"
-              class="h-8 w-8 text-primary-400"
+              alt="Логотип PhotoFinder"
+              class="h-14 w-14 text-primary-400"
             />
             <span class="text-xl font-bold ml-2">PhotoFinder</span>
           </div>

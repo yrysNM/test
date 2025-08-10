@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
-import { useMotion } from '@vueuse/motion';
+import { ref } from "vue";
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
+import { useMotion } from "@vueuse/motion";
 
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
@@ -33,18 +33,41 @@ const buttonMotion = useMotion(buttonRef, {
     <div class="container py-4 flex items-center justify-between">
       <!-- Logo -->
       <div ref="logoRef" class="flex items-center">
-        <a href="#" class="text-2xl font-bold text-primary-600 flex items-center gap-2">
-          <img src="../assets/logo.svg" alt="ФотоПоиск Логотип" class="h-8 w-8" />
+        <a
+          href="#"
+          class="text-3xl font-bold text-primary-600 flex items-center gap-2"
+        >
+          <img
+            src="../assets/logo.svg"
+            alt="PhotoFinder Логотип"
+            class="h-14 w-14"
+          />
           PhotoFinder
         </a>
       </div>
 
       <!-- Desktop Navigation -->
       <nav ref="navRef" class="hidden md:flex items-center space-x-8">
-        <a href="#features" class="text-gray-600 hover:text-primary-600 font-medium">Функции</a>
-        <a href="#how-it-works" class="text-gray-600 hover:text-primary-600 font-medium">Как это работает</a>
-        <a href="#testimonials" class="text-gray-600 hover:text-primary-600 font-medium">Отзывы</a>
-        <a href="#pricing" class="text-gray-600 hover:text-primary-600 font-medium">Цены</a>
+        <a
+          href="#features"
+          class="text-gray-600 hover:text-primary-600 font-medium"
+          >Функции</a
+        >
+        <a
+          href="#how-it-works"
+          class="text-gray-600 hover:text-primary-600 font-medium"
+          >Как это работает</a
+        >
+        <a
+          href="#testimonials"
+          class="text-gray-600 hover:text-primary-600 font-medium"
+          >Отзывы</a
+        >
+        <a
+          href="#pricing"
+          class="text-gray-600 hover:text-primary-600 font-medium"
+          >Цены</a
+        >
       </nav>
 
       <!-- CTA Button -->
@@ -53,19 +76,41 @@ const buttonMotion = useMotion(buttonRef, {
       </div>
 
       <!-- Mobile Menu Button -->
-      <button @click="toggleMenu" class="md:hidden text-gray-600 hover:text-primary-600">
+      <button
+        @click="toggleMenu"
+        class="md:hidden text-gray-600 hover:text-primary-600"
+      >
         <Bars3Icon v-if="!isMenuOpen" class="h-6 w-6" />
         <XMarkIcon v-else class="h-6 w-6" />
       </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div v-if="isMenuOpen" class="md:hidden bg-white border-t border-gray-100 animate-slide-down">
+    <div
+      v-if="isMenuOpen"
+      class="md:hidden bg-white border-t border-gray-100 animate-slide-down"
+    >
       <div class="container py-4 space-y-4">
-        <a href="#features" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Функции</a>
-        <a href="#how-it-works" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Как это работает</a>
-        <a href="#testimonials" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Отзывы</a>
-        <a href="#pricing" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Цены</a>
+        <a
+          href="#features"
+          class="block text-gray-600 hover:text-primary-600 font-medium py-2"
+          >Функции</a
+        >
+        <a
+          href="#how-it-works"
+          class="block text-gray-600 hover:text-primary-600 font-medium py-2"
+          >Как это работает</a
+        >
+        <a
+          href="#testimonials"
+          class="block text-gray-600 hover:text-primary-600 font-medium py-2"
+          >Отзывы</a
+        >
+        <a
+          href="#pricing"
+          class="block text-gray-600 hover:text-primary-600 font-medium py-2"
+          >Цены</a
+        >
         <button class="btn-primary w-full">Создать событие</button>
       </div>
     </div>
