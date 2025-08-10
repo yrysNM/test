@@ -13,11 +13,7 @@ import { MotionPlugin } from '@vueuse/motion';
   <div class="min-h-screen flex flex-col">
     <Header />
     <main class="flex-grow">
-      <Hero />
-      <Features />
-      <HowItWorks />
-      <Testimonials />
-      <Pricing />
+    <router-view />
     </main>
     <Footer />
   </div>

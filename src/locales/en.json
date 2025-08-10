@@ -1,0 +1,232 @@
+{
+  "header": {
+    "navigation": {
+      "features": "Features",
+      "howItWorks": "How It Works",
+      "pricing": "Pricing",
+      "faq": "FAQ"
+    },
+    "cta": "Get Started Free",
+    "languageToggle": "RU"
+  },
+  "hero": {
+    "badge": "New Version 2.0",
+    "title": "Find Anyone in Your Photos with AI",
+    "subtitle": "Automatically organize and find people across thousands of photos using our advanced face recognition technology.",
+    "cta": "Get Started Free",
+    "watchDemo": "Watch Demo",
+    "trustedBy": "Trusted by 10,000+ users"
+  },
+  "features": {
+    "badge": "Features",
+    "title": "Powerful Features for Photo Organization",
+    "subtitle": "Discover the advanced capabilities that make photo management simple and efficient.",
+    "items": [
+      {
+        "title": "Automatic Face Recognition",
+        "description": "Our AI automatically detects and recognizes faces in your photos with high accuracy."
+      },
+      {
+        "title": "Group Organization",
+        "description": "Easily organize photos by groups, events, or individual people with smart categorization."
+      },
+      {
+        "title": "Batch Processing",
+        "description": "Process thousands of photos simultaneously with our powerful cloud processor."
+      },
+      {
+        "title": "Privacy-Focused",
+        "description": "Your photos remain private and secure with our advanced encryption and privacy controls."
+      },
+      {
+        "title": "Cross-Platform",
+        "description": "Access your photos from any device with our web, mobile, and desktop applications."
+      },
+      {
+        "title": "Smart Search",
+        "description": "Find specific people or groups instantly with our intelligent search system."
+      }
+    ]
+  },
+  "howItWorks": {
+    "badge": "Process",
+    "title": "How It Works",
+    "subtitle": "Simple three-step process to organize your photos with AI.",
+    "steps": [
+      {
+        "title": "Upload Photos",
+        "description": "Simply drag and drop your photos or select folders to upload. We support all major formats."
+      },
+      {
+        "title": "AI Analyzes",
+        "description": "Our advanced AI scans and identifies faces, creating detailed profiles for each person."
+      },
+      {
+        "title": "Find Instantly",
+        "description": "Search for any person by name or browse automatically created groups and albums."
+      }
+    ],
+    "cta": "Try Free",
+    "trialNote": "14-day free trial"
+  },
+  "testimonials": {
+    "badge": "Customer Reviews",
+    "title": "What Our Users Say",
+    "subtitle": "Join thousands of satisfied users who have revolutionized the way they organize their photos.",
+    "items": [
+      {
+        "quote": "PhotoFinder has completely changed how I organize my family photos. I can find any photo in seconds now!",
+        "author": "Anna Petrova",
+        "role": "Family Photographer"
+      },
+      {
+        "quote": "As a wedding photographer, I process thousands of photos. This tool saves me hours of work every week.",
+        "author": "Michael Sidorov",
+        "role": "Wedding Photographer"
+      },
+      {
+        "quote": "The face recognition accuracy is incredible. It has saved our team countless hours of manual sorting.",
+        "author": "Elena Kozlova",
+        "role": "Marketing Manager"
+      }
+    ],
+    "stats": {
+      "photos": "10M+ photos processed",
+      "users": "50K+ active users",
+      "accuracy": "99.9% accuracy",
+      "time": "5 sec average processing time"
+    }
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Choose Your Perfect Plan",
+    "subtitle": "Start free and scale as your needs grow.",
+    "plans": [
+      {
+        "name": "Basic",
+        "price": "0",
+        "description": "For getting started",
+        "features": [
+          "Up to 1,000 photos",
+          "Basic face recognition",
+          "Standard processing",
+          "Email support",
+          "1 user account"
+        ],
+        "cta": "Get Started Free",
+        "popular": false
+      },
+      {
+        "name": "Pro",
+        "price": "9.99",
+        "description": "For individuals with large collections",
+        "features": [
+          "Up to 10,000 photos",
+          "Advanced face recognition",
+          "Faster processing",
+          "Priority email support",
+          "2 user accounts",
+          "Cloud storage integration"
+        ],
+        "cta": "Start Free Trial",
+        "popular": true
+      },
+      {
+        "name": "Business",
+        "price": "29.99",
+        "description": "For teams and organizations",
+        "features": [
+          "Unlimited photos",
+          "Enterprise face recognition",
+          "Priority processing",
+          "24/7 support",
+          "Unlimited users",
+          "Advanced analytics",
+          "API access",
+          "Custom integrations"
+        ],
+        "cta": "Contact Sales",
+        "popular": false
+      }
+    ],
+    "faqLink": "Have questions about our pricing?",
+    "faqText": "Check our FAQ"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions on Memzo",
+    "categories": {
+      "faceRecognition": "Face Recognition",
+      "photos": "Photos on Memzo",
+      "events": "Create Event",
+      "pricing": "Pricing",
+      "sellPhotos": "Sell Photos",
+      "privacy": "Privacy",
+      "others": "Others"
+    },
+    "questions": {
+      "faceRecognition": [
+        {
+          "question": "How accurate is Memzo's Facial Recognition?",
+          "answer": "Our facial recognition technology uses advanced machine learning algorithms to analyze facial features and create unique biometric templates for each person in your photos. The accuracy rate is over 95% in optimal lighting conditions."
+        },
+        {
+          "question": "How does Face Recognition work for the users?",
+          "answer": "Users simply upload their photos to our platform. Our AI automatically scans and identifies faces, creating searchable profiles. Users can then search for specific people across all their photos instantly."
+        },
+        {
+          "question": "How many guests can find their photos via Face Recognition?",
+          "answer": "There's no limit to the number of people our system can recognize. Whether you have 10 or 10,000 people in your photo collection, our facial recognition can identify and organize them all."
+        }
+      ],
+      "photos": [
+        {
+          "question": "What photo formats are supported?",
+          "answer": "We support all major image formats including JPEG, PNG, TIFF, RAW, as well as video formats MP4, AVI, MOV."
+        }
+      ],
+      "pricing": [
+        {
+          "question": "Can I cancel my subscription anytime?",
+          "answer": "Yes! You can cancel your subscription at any time without any penalties. Your access will remain active until the end of your paid period."
+        }
+      ]
+    },
+    "emptyCategory": "Questions in this category coming soon"
+  },
+  "footer": {
+    "sections": {
+      "product": {
+        "title": "Product",
+        "links": {
+          "features": "Features",
+          "howItWorks": "How It Works",
+          "pricing": "Pricing",
+          "faq": "FAQ"
+        }
+      },
+      "company": {
+        "title": "Company",
+        "links": {
+          "about": "About",
+          "blog": "Blog",
+          "careers": "Careers",
+          "contact": "Contact"
+        }
+      },
+      "legal": {
+        "title": "Legal",
+        "links": {
+          "privacy": "Privacy Policy",
+          "terms": "Terms of Service",
+          "cookies": "Cookie Policy",
+          "gdpr": "GDPR"
+        }
+      }
+    },
+    "copyright": "© {year} PhotoFinder. All rights reserved.",
+    "languageSelector": {
+      "ru": "Русский",
+      "en": "English"
+    }
+  }
+}
