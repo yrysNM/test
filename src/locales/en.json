@@ -101,132 +101,92 @@
     "badge": "Pricing",
     "title": "Choose Your Perfect Plan",
     "subtitle": "Start free and scale as your needs grow.",
-    "plans": [
-      {
-        "name": "Basic",
-        "price": "0",
-        "description": "For getting started",
-        "features": [
-          "Up to 1,000 photos",
-          "Basic face recognition",
-          "Standard processing",
-          "Email support",
-          "1 user account"
-        ],
-        "cta": "Get Started Free",
-        "popular": false
-      },
-      {
-        "name": "Pro",
-        "price": "9.99",
-        "description": "For individuals with large collections",
-        "features": [
-          "Up to 10,000 photos",
-          "Advanced face recognition",
-          "Faster processing",
-          "Priority email support",
-          "2 user accounts",
-          "Cloud storage integration"
-        ],
-        "cta": "Start Free Trial",
-        "popular": true
-      },
-      {
-        "name": "Business",
-        "price": "29.99",
-        "description": "For teams and organizations",
-        "features": [
-          "Unlimited photos",
-          "Enterprise face recognition",
-          "Priority processing",
-          "24/7 support",
-          "Unlimited users",
-          "Advanced analytics",
-          "API access",
-          "Custom integrations"
-        ],
-        "cta": "Contact Sales",
-        "popular": false
-      }
-    ],
-    "faqLink": "Have questions about our pricing?",
-    "faqText": "Check our FAQ"
-  },
-  "faq": {
-    "title": "Frequently Asked Questions on Memzo",
-    "categories": {
-      "faceRecognition": "Face Recognition",
-      "photos": "Photos on Memzo",
-      "events": "Create Event",
-      "pricing": "Pricing",
-      "sellPhotos": "Sell Photos",
-      "privacy": "Privacy",
-      "others": "Others"
-    },
-    "questions": {
-      "faceRecognition": [
-        {
-          "question": "How accurate is Memzo's Facial Recognition?",
-          "answer": "Our facial recognition technology uses advanced machine learning algorithms to analyze facial features and create unique biometric templates for each person in your photos. The accuracy rate is over 95% in optimal lighting conditions."
+    "plans": {
+      "single": {
+        "type": "Single event use",
+        "price": "3¢",
+        "unit": "/ photo",
+        "priceDescription": "Price per photo upload",
+        "bestFor": {
+          "label": "Best for:",
+          "description": "individuals & organisations hosting 1-3 events per year"
         },
-        {
-          "question": "How does Face Recognition work for the users?",
-          "answer": "Users simply upload their photos to our platform. Our AI automatically scans and identifies faces, creating searchable profiles. Users can then search for specific people across all their photos instantly."
+        "features": [
+          {
+            "title": "Distribute photos for free",
+            "description": "allow free photo access to guests"
+          },
+          {
+            "title": "Photo Sales",
+            "description": "sell photos to event guests"
+          },
+          {
+            "title": "0% Sales commission",
+            "description": "you get 100% photo sales revenue"
+          },
+          {
+            "title": "Branding",
+            "description": "promote your brand to guests and their friends"
+          },
+          {
+            "title": "Unlimited Guests",
+            "description": "no limit on guests or selfies"
+          },
+          {
+            "title": "2 years",
+            "description": "photos storage and access duration"
+          },
+          {
+            "title": "Website Integration",
+            "description": "integrate event access with your website"
+          }
+        ],
+        "cta": "Create event now",
+        "note": "First 300 photos are free"
+      },
+      "recurring": {
+        "type": "Recurring - multi event use",
+        "price": "Contact Us",
+        "bestFor": {
+          "label": "Best for:",
+          "description": "photographers and event organizers having multiple events per year"
         },
-        {
-          "question": "How many guests can find their photos via Face Recognition?",
-          "answer": "There's no limit to the number of people our system can recognize. Whether you have 10 or 10,000 people in your photo collection, our facial recognition can identify and organize them all."
-        }
-      ],
-      "photos": [
-        {
-          "question": "What photo formats are supported?",
-          "answer": "We support all major image formats including JPEG, PNG, TIFF, RAW, as well as video formats MP4, AVI, MOV."
-        }
-      ],
-      "pricing": [
-        {
-          "question": "Can I cancel my subscription anytime?",
-          "answer": "Yes! You can cancel your subscription at any time without any penalties. Your access will remain active until the end of your paid period."
-        }
-      ]
-    },
-    "emptyCategory": "Questions in this category coming soon"
-  },
-  "footer": {
-    "sections": {
-      "product": {
-        "title": "Product",
-        "links": {
-          "features": "Features",
-          "howItWorks": "How It Works",
-          "pricing": "Pricing",
-          "faq": "FAQ"
-        }
-      },
-      "company": {
-        "title": "Company",
-        "links": {
-          "about": "About",
-          "blog": "Blog",
-          "careers": "Careers",
-          "contact": "Contact"
-        }
-      },
-      "legal": {
-        "title": "Legal",
-        "links": {
-          "privacy": "Privacy Policy",
-          "terms": "Terms of Service",
-          "cookies": "Cookie Policy",
-          "gdpr": "GDPR"
-        }
+        "features": [
+          {
+            "title": "Distribute photos for free",
+            "description": "allow free photo access to guests"
+          },
+          {
+            "title": "Photo Sales",
+            "description": "sell photos to event guests"
+          },
+          {
+            "title": "0% Sales commission",
+            "description": "you get 100% photo sales revenue"
+          },
+          {
+            "title": "Unlimited Guests",
+            "description": "no limit on guests or selfies"
+          },
+          {
+            "title": "Unlimited Events",
+            "description": "create multiple (unlimited) events"
+          },
+          {
+            "title": "Branding",
+            "description": "promote your brand to guests and their friends"
+          },
+          {
+            "title": "White Label",
+            "description": "custom URLs and white labeling in your brand"
+          },
+          {
+            "title": "Account Manager",
+            "description": "Dedicated account manager for quick support"
+          }
+        ],
+        "cta": "Contact Us"
       }
-    },
-    "copyright": "© {year} PhotoFinder. All rights reserved.",
-    "languageSelector": {
-      "ru": "Русский",
-      "en": "English"
     }
   }
 }

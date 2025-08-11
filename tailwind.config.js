@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['SF Pro Text', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'sf-pro': ['SF Pro Text', 'sans-serif'],
+      },
       colors: {
         primary: {
           50: '#f0f9ff',
