@@ -59,12 +59,12 @@ const buttonMotion = useMotion(buttonRef, {
           >
             {{ t("header.navigation.features") }}
           </router-link>
-          <router-link
-            to="/#how-it-works"
+          <a
+            href="/#how-it-works"
             class="text-gray-600 hover:text-primary-600 transition-colors"
           >
             {{ t("header.navigation.howItWorks") }}
-          </router-link>
+          </a>
           <router-link
             to="/pricing"
             class="text-gray-600 hover:text-primary-600 transition-colors"
@@ -81,12 +81,12 @@ const buttonMotion = useMotion(buttonRef, {
 
         <!-- CTA Button and Language Toggle -->
         <div ref="buttonRef" class="hidden md:flex items-center space-x-4">
-          <button
+          <!-- TODO LANG <button
             @click="toggleLanguage"
             class="px-3 py-1 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
           >
             {{ t("header.languageToggle") }}
-          </button>
+          </button> -->
           <button class="btn-primary">
             {{ t("header.cta") }}
           </button>

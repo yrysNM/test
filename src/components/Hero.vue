@@ -40,7 +40,7 @@ const imageMotion = useMotion(imageRef, {
             ref="titleRef"
             class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
           >
-            Делитесь фотографиями с мероприятий с помощью распознавания лиц
+            События в лицах
           </h1>
           <p ref="descriptionRef" class="text-xl text-gray-600 max-w-lg">
             Автоматически идентифицируйте и организуйте фотографии по лицам.
@@ -49,7 +49,7 @@ const imageMotion = useMotion(imageRef, {
           </p>
           <div ref="ctaRef" class="flex flex-col sm:flex-row gap-4">
             <button class="btn-primary">Создать событие</button>
-            <button class="btn-secondary">Как это работает</button>
+            <a class="btn-secondary" href="/#how-it-works">Как это работает</a>
           </div>
         </div>
 

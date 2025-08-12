@@ -192,17 +192,14 @@ const footerMotion = useMotion(footerRef, {
         <p class="text-gray-400 text-sm">
           © {{ new Date().getFullYear() }} PhotoFinder. Все права защищены.
         </p>
-        <div class="mt-4 md:mt-0">
+        <!-- <div class="mt-4 md:mt-0">
           <select
             class="bg-gray-800 text-gray-400 text-sm rounded-md px-3 py-1 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-primary-500"
           >
             <option value="ru">Русский</option>
             <option value="en">English</option>
-            <!-- <option value="fr">Français</option>
-            <option value="es">Español</option>
-            <option value="de">Deutsch</option> -->
           </select>
-        </div>
+        </div> -->
       </div>
     </div>
   </footer>

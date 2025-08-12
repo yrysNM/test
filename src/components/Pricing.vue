@@ -54,7 +54,7 @@ onMounted(() => {
         <!-- Single Event Plan -->
         <div
           :ref="(el) => setPlanRef(el as any, 0)"
-          class="bg-white rounded-2xl p-8 border border-gray-200 transition-all duration-300 hover:shadow-lg flex-1 max-w-md"
+          class="bg-white rounded-2xl p-8 border border-gray-200 transition-all duration-300 hover:shadow-lg flex-1 max-w-md flex flex-col"
         >
           <!-- Plan Header -->
           <div class="mb-8">
@@ -74,7 +74,7 @@ onMounted(() => {
           </div>
 
           <!-- Features -->
-          <div class="space-y-4 mb-8">
+          <div class="space-y-4 mb-8 flex-1">
             <div v-for="(feature, index) in tm('pricing.plans.single.features', [], { returnObjects: true })" :key="index" class="flex items-start">
               <svg class="w-5 h-5 text-primary-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -91,15 +91,15 @@ onMounted(() => {
             {{ t('pricing.plans.single.cta') }}
           </button>
           
-          <div class="text-center text-gray-500 text-sm mt-3">
+          <!-- <div class="text-center text-gray-500 text-sm mt-3"> -->
             <!-- {{ t('pricing.plans.single.note') }} -->
-          </div>
+          <!-- </div> -->
         </div>
 
         <!-- Recurring Plan -->
         <div
           :ref="(el) => setPlanRef(el as any, 1)"
-          class="bg-white rounded-2xl p-8 border border-gray-200 transition-all duration-300 hover:shadow-lg flex-1 max-w-md"
+          class="bg-white rounded-2xl p-8 border border-gray-200 transition-all duration-300 hover:shadow-lg flex-1 max-w-md flex flex-col"
         >
           <!-- Plan Header -->
           <div class="mb-8">
