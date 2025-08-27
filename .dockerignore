@@ -1,0 +1,28 @@
+# Dependency directories
+node_modules/
+
+# Production and build outputs
+dist/
+out/
+build/
+public/build/
+
+# Vite, VuePress, and cache directories
+.vite/
+.vitepress/
+.cache/
+.tmp/
+
+# Environment and config files
+*.env*
+!*.env.production # Example: if you need a specific .env file for production builds
+
+# Git-related files
+.git/
+.gitignore
+
+# IDE and editor configuration files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
