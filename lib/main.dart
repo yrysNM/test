@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/pages/first_page.dart';
+import 'package:hello_world/pages/second_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,85 +9,18 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  static const List names = ['Test1', "test,2", 'test,3'];
+
+  void userTapped() {
+    print('hello world@@@@');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        // backgroundColor: Colors.deepPurple[100],
-        // appBar: AppBar(
-        //   title: Text("Test app", style: TextStyle(color: Colors.white)),
-        //   elevation: 0,
-        //   leading: Icon(Icons.menu, color: Colors.white),
-        //   backgroundColor: Colors.deepPurple,
-        //   actions: [
-        //     IconButton(
-        //       onPressed: () {},
-        //       icon: Icon(Icons.logout, color: Colors.white),
-        //     ),
-        //   ],
-        // ),
-
-        /**
-         * BODY first practice1
-         * 
-        body: Center(
-          child: Container(
-            height: 300,
-            width: 300,
-            decoration: BoxDecoration(
-              color: Colors.deepPurple,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: EdgeInsets.all(25),
-            // child: Text(
-            //   'Hello world',
-            //   style: TextStyle(
-            //     color: Colors.white,
-            //     fontSize: 28,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            // ),
-            child: Icon(Icons.favorite, color: Colors.white, size: 65),
-          ),
-        ),
-         * 
-         *
-         */
-        body: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            // 1first box
-            Expanded(
-              child: Container(
-                // height: 200,
-                // width: 200,
-                color: Colors.deepPurple,
-              ),
-            ),
-
-            // 2nd box
-            Expanded(
-              flex: 3,
-              child: Container(
-                // height: 200,
-                // width: 200,
-                color: Colors.deepPurple[600],
-              ),
-            ),
-
-            // 3rd box
-            Expanded(
-              child: Container(
-                // height: 100,
-                // width: 100,
-                color: Colors.deepPurple[300],
-              ),
-            ),
-          ],
-        ),
-      ),
       debugShowCheckedModeBanner: false,
+      home: FirstPage(),
+      routes: {"/secondpage": (context) => SecondPage()},
     );
   }
 }
