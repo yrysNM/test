@@ -1,29 +1,55 @@
-import "package:flutter/material.dart";
-import "package:hello_world/pages/second_page.dart";
+import 'package:flutter/material.dart';
+import 'package:hello_world/pages/home_page.dart';
+import 'package:hello_world/pages/profile_page.dart';
+import 'package:hello_world/pages/settings_page.dart';
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+class FirstPage extends StatefulWidget {
+  FirstPage({super.key});
+
+  @override
+  State<FirstPage> createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage> {
+  int _selectedIndex = 0;
+
+  void _navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  final List _pages = [
+    //  home page
+    HomePage(),
+    // profile page,
+    ProfilePage(),
+    // settings page,
+    SettingsPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('First page')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // navigate to second page
+      appBar: AppBar(title: Text("First Page")),
+      body: _pages[_selectedIndex],
 
-            // set uped routes second variant of navigate
-            Navigator.pushNamed(context, "/secondpage");
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _navigateBottomBar,
+        items: [
+          // home
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
 
-            // without routes config first variant
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => SecondPage()),
-            // );
-          },
-          child: Text("Go to second page"),
-        ),
+          // profile
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+
+          // settings
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
       ),
     );
   }
