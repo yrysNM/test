@@ -45,12 +45,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   void hideDialog() {
-    _controller.clear();
     Navigator.of(context).pop();
+    _controller.clear();
   }
 
-  void createNewTask() {
-    showDialog(
+  void createNewTask() async {
+    final result = await showDialog(
       context: context,
       builder: (context) {
         return DialogBox(
@@ -60,6 +60,10 @@ class _HomePageState extends State<HomePage> {
         );
       },
     );
+
+    if (result == null) {
+      _controller.clear();
+    }
   }
 
   void deleteTask(int index) {
